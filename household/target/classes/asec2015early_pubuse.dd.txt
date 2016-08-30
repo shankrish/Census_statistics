@@ -1,0 +1,1232 @@
+2015 ANNUAL SOCIAL AND ECONOMIC (ASEC) 
+SUPPLEMENT DATA DICTIONARY
+
+
+HOUSEHOLD RECORD
+
+
+
+DATA       SIZE   BEGIN RANGE                  
+
+D HRECORD     1      1  (1:1)
+U All households
+V          1 .Household record
+
+D H_SEQ       5      2  (00001:99999)
+     Household sequence number
+V All households
+V     00001- .Household sequence number
+V      99999 .
+
+D HHPOS       2      7  (00:00)
+     Trailer portion of unique household
+     ID. 00 for HH record.
+     Same function in family record is
+     field FFPOS (01-39)
+     Same function in person record
+     is PPPOS (41-79)
+
+D HUNITS      1      9  (1:5)
+     Item 78 - How many units in the 
+     structure
+U H_HHTYPE = 1
+V          1 .1 Unit
+V          2 .2 Units
+V          3 .3 - 4 Units
+V          4 .5 - 9 Units
+V          5 .10+ Units
+
+D HEFAMINC    2     10  (-1:16)
+     Family income
+     NOTE:  If a nonfamily household, income
+     includes only that of householder.
+U All households
+V         -1 .Not in universe
+V         01 .Less than $5,000
+V         02 .$5,000 to $7,499
+V         03 .$7,500 to $9,999
+V         04 .$10,000 to $12,499
+V         05 .$12,500 to $14,999
+V         06 .$15,000 to $19,999
+V         07 .$20,000 to $24,999
+V         08 .$25,000 to $29,999
+V         09 .$30,000 to $34,999
+V         10 .$35,000 to $39,999
+V         11 .$40,000 to $49,999
+V         12 .$50,000 to $59,999
+V         13 .$60,000 to $74,999
+V         14 .$75,000 to $99,999
+V         15 .$100,000 to $149,999
+V         16 .$150,000 and over
+
+D H_RESPNM    2     12  (0:99)
+     Line number of household
+     respondent
+V         -1 .Not in universe (non-interview)
+V         00 .Blank or impossible
+V      01-99 .Line number
+
+D H_YEAR      4     14  (0:2999)
+     Year of survey
+U All households
+V  1999-2999 .
+
+DATA        SIZE  BEGIN  RANGE
+
+D FILLER      2     18
+       Filler
+
+D H_HHTYPE    1     20  (1:3)
+     Type of household
+U All
+V          1 .Interview
+V          2 .Type A non-interview
+V          3 .Type B/C non-interview
+
+D H_NUMPER    2     21  (00:39)
+     Number of persons in household
+U H_HHTYPE = 1
+V         00 .Noninterview household
+V      01-39 .Number of persons in HHLD
+
+D HNUMFAM     2     23  (00:39)
+     Number of families in household
+U H_HHTYPE = 1
+V         00 .Noninterview household
+V      01-39 .Number of families in HHLD
+
+D H_TYPE      1     25  (0:9)
+     Household type
+U H_HHTYPE = 1
+V          0 .Non-interview household
+V          1 .Husband/wife primary family
+V            .(neither husband or wife in
+V            .Armed Forces)
+V          2 .Husband/wife primary family
+V            .(husband and/or wife in
+V            .Armed Forces)
+V          3 .Unmarried civilian male
+V            .primary family householder
+V          4 .Unmarried civilian female
+V            .primary family householder
+V          5 .Primary family household -
+V            .reference person in
+V            .Armed Forces and unmarried
+V          6 .Civilian male nonfamily
+V            .householder
+V          7 .Civilian female nonfamily
+V            .householder
+V          8 .Nonfamily householder 
+V            .household-reference person in 
+V            .Armed Forces
+V          9 .Group quarters
+
+D H_MONTH     2     26  (01:12)
+     Month of survey
+U All households
+V         03 .March
+
+D FILLER      1     28
+     Filler
+
+D H_MIS       1     29  (1:8)
+     Month in sample
+U All households
+V        1-8 .Month in sample
+
+D H_HHNUM     1     30  (0:8)
+     Household number
+U All households
+V          0 .Blank
+V        1-8 .Household number
+
+D H_LIVQRT    2     31  (01:12)
+     Item 4 - Type of living quarters (
+     recode)
+U All households
+V    Housing unit
+V         01 .House, apt., flat
+V         02 .HU in nontransient hotel, etc.
+V         03 .HU, perm,  in trans. hotel,
+V            .motel, etc.
+V         04 .HU in rooming house
+V         05 .Mobile home or trailer with no
+V            .permanent room added
+V         06 .Mobile home or trailer with 1
+V            .or more perm rooms added
+V         07 .HU not specified above
+V    		Other Unit
+V         08 .Qtrs not hu in rooming or
+V            .boarding house
+V         09 .Unit not perm in trans. hotel,
+V            .motel, etc.
+V         10 .Tent or trailer site
+V         11 .Student quarters in college
+V            .dormitory
+V         12 .Other not HU
+
+D H_TYPEBC    2     33  (00:19)
+     Item 15 - Type B/C
+U H_HHTYPE = 3
+V         00 .Interviewed, or Type A
+V    TYPE B
+V         01 .Vacant - regular
+V         02 .Vacant - storage of HHLD
+V            .furniture
+V         03 .Temp occ by persons with URE
+V         04 .Unfit or to be demolished
+V         05 .Under construction, not ready
+V         06 .Converted to temp business or
+V            .storage
+V         07 .Occ by AF members or persons
+V            .under 15
+V         08 .Unocc tent or trailer site
+V         09 .Permit granted, construction
+V            .not started
+V         10 .Other
+V    Type C
+V         11 .Demolished
+V         12 .House or trailer moved
+V         13 .Outside segment
+V         14 .Converted to perm business
+V            .or storage
+V         15 .Merged
+V         16 .Condemned
+V         17 .Built after April 1, 1980
+V         18 .Unused line of listing sheet
+V         19 .Other
+
+D H_TENURE    1     35  (0:3)
+      Tenure
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Owned or being bought
+V          2 .Rent
+V          3 .No cash rent
+D H_TELHHD    1     36  (0:2)
+     Telephone in household
+U H_HHTYPE = 1
+V          0 .Not in universe (non-interview)
+V          1 .Yes
+V          2 .No
+
+D H_TELAVL    1     37  (0:2)
+     Telephone available
+U H_TELHHD = 2
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D H_TELINT    1     38  (0:2)
+     Telephone interview acceptable
+U H_TELAVL = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D GEREG       1     39  (1:4)
+     Region
+U All households
+V          1 .Northeast
+V          2 .Midwest
+V          3 .South
+V          4 .West
+
+D FILLER      2     40  
+     Filler
+
+D GESTFIPS    2     42 (01:56)
+     State FIPS code
+V      01-56 .State code
+
+D GTCBSA      5     44  (00000:79600)
+     Metropolitan CBSA FIPS CODE
+V       0000 .Non-met or not identified
+V     00460- .CBSA code
+V      79600 .
+
+D GTCO        3     49  (000:810)
+     FIPS County Code
+U All HHLD's in sample
+V        000 .Not identified
+V    001-810 .Specific county code
+V            .(See Appendix E)
+V            .Note:  This code must be
+V            .used in combination with
+V            .a State Code (GESTFIPS)
+V            .in order to uniquely
+V            .identify a county
+
+D GTCBSAST    1     52  (1:4)
+     Principal city/Balance status
+U All
+V          1 .Principal city
+V          2 .Balance of CBSA
+V          3 .Non CBSA
+V          4 .Not identified
+
+D GTMETSTA    1     53  (1:3)
+     Metropolitan status
+U All
+V          1 .Metropolitan
+V          2 .Non-metropolitan
+V          3 .Not identified
+
+D GTINDVPC    1     54  (0:4)
+     Individual Principal City Code
+V          0 .Not identified, non-met, or
+V            .not a principal city
+V        1-7 .(See Appendix E) Note:  
+V            .Whenever possible this code 
+V            .identifies specific principal 
+V            .cities in a CBSA that 
+V            .has multiple principal cities.  
+V            .This code must be used in 
+V            .combination with the CBSA 
+V            .FIPS Code GTCBSA in order 
+V            .to uniquely identify a 
+V            .specific city
+
+D GTCBSASZ    1     55  (0,2:7)
+     Metropolitan area (CBSA) size
+U All HHLD's in sample
+V          0 .Not identified or
+V            .nonmetropolitan
+V          2 .100,000 - 249,999
+V          3 .250,000 - 499,999
+V          4 .500,000 - 999,999
+V          5 .1,000,000 - 2,499,999
+V          6 .2,500,000 - 4,999,999
+V          7 .5,000,000+
+
+D GTCSA       3     56 (000:720)
+    Consolidated Statistical Area (CSA)
+    FIPS Code
+V        000 .Non-met or not identified
+V    118-720 .CSA Code
+
+D FILLER      1     59
+     Filler
+
+*********************************************
+   Edited noncash household items     
+*********************************************
+D HUNDER15    2     60  (00:39)
+     Recode
+     Number of persons in household under
+     age 15
+U ITEM 79 = 1
+V         00 .None
+V      01-39 .Number persons under 15
+
+D FILLER      6     62
+    Filler
+
+D HH5TO18     2     68  (00:39)
+     Recode
+     Item 82 - Number of persons in household
+     age 5 to 18 excluding family heads and
+     spouses
+V         00 .None
+V      01-39 .Number persons 5 to 18
+
+D HHOTLUN     1     70  (0:2)
+     Item 83 - During 20.. how many of the
+     children in this household usually ate
+     a complete hot lunch offered at school?
+U HH5TO18 = 1+
+V          0 .Not in universe
+V          1 .All or some
+V          2 .None
+
+D HHOTNO      1     71  (0:9)
+     Item 83 - Number of children in 
+     household who usually ate hot lunch.
+     Note:  If more than 9 children/persons
+     present, a value of 9 does not
+     necessarily mean "ALL."
+U HHOTLUN = 1
+V          0 .Not in universe
+V          1 .1 child
+V            ...
+V          9 .9 or more children
+
+D HFLUNCH     1     72  (0:2)
+     Item 86 - During 20.. how many of the
+     children in this household received 
+     free or reduced price lunches because
+     they qualified for the federal school
+     lunch program?
+U HHOTLUN = 1
+V          0 .Not in universe
+V          1 .Some or all
+V          2 .None
+
+D HFLUNNO     1     73  (0:9)
+     Item 86 - Number receiving free lunch
+     Note:  If more than 9 children/persons
+     present, a value of 9 does not
+     necessarily mean "ALL."
+U HFLUNCH = 1
+V          0 .Not in universe
+V          1 .1
+V            ...
+V          9 .9 or more
+
+D HPUBLIC     1     74  (0:2)
+     Item 88 - Is this a public housing
+     project, that is owned by a local
+     housing authority or other
+     public agency?
+U HTENURE = 2
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HLORENT     1     75  (0:2)
+     Item 89 - Are you paying lower rent
+     because the federal, state, or local
+     government is paying part
+     of the cost?
+U HPUBLIC = 2
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HFOODSP     1     76  (0:2)
+     Item 90 - Did anyone in this household
+     get food stamps at any time in 20..?
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HFOODNO     1     77  (0:9)
+     Item 91 - Number of children covered
+     by food stamps
+     Note: If more than 9 children/persons
+     present, a value of 9 does not
+     necessarily mean "ALL."
+U HFOODSP = 1
+V          0 .Not in universe
+V          1 .1
+V            ...
+V          9 .9 or more
+
+D FILLER      1     78
+     Filler
+
+D HFOODMO     2     79  (00:12)
+     Item 92 - Number months covered by
+     food stamps
+U HFOODSP = 1
+V         00 .Not in universe
+V         01 .1 month
+V            ...
+V         12 .12 Months
+
+D FILLER      4     81
+     Filler
+
+D HENGAST     1     85  (0:2)
+     Item 94 - Since October 1, 20.., has 
+     this household received energy 
+     assistance from the federal, state,
+     or local government?
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+          
+D HENGVAL     4     86  (0000:1999)
+     Item 95 - Altogether, how much energy
+     assistance has been received since
+     October 1, 20..?
+U HENGAST = 1
+V       0000 .Not in universe
+V  0001-1999 .Energy assistance
+
+*********************************************
+   Household Income Recipiency and Values
+*********************************************
+
+*********************************************
+     Source of Income
+     Wages and Salaries   
+*********************************************
+
+D HINC_WS     1     90  (0:2)
+     Recode - Wage and Salary
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HWSVAL      7     91  (0000000:3899961)
+     Recode - HHLD income - Wages and 
+     Salaries
+U HINC_WS = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income                     
+     Self-Employment (Nonfarm)            
+*********************************************
+
+D HINC_SE     1     98  (0:2)
+U H_HHTYPE = 1
+     Recode - Own business self-employment
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HSEVAL      7     99  (-389961:3899961)
+     Recode - HHLD income - self employment
+     income
+U HINC_SE  = 1
+V    0000000 .None or not in universe
+V    Neg Amt .Income (loss)
+V    Pos Amt .Income
+
+*********************************************
+     Source of Income                     
+     Self-Employment farm                 
+*********************************************
+
+D HINC_FR     1    106  (0:2)
+     Recode - Farm self-employment
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HFRVAL      7    107  (-389961:3899961)
+     Recode - HHLD income - Farm income
+U HINC_FR = 1
+V    0000000 .None or not in universe
+V    Neg Amt .Income (loss)
+V    Pos Amt .Income
+
+*********************************************
+     Source of Income                     
+     Unemployment Compensation            
+*********************************************
+
+D HINC_UC     1    114  (0:2)
+     Recode - Unemployment compensation
+     benefits
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HUCVAL      7    115  (0000000:3899961)
+     Recode - HHLD income - Unemployment
+     compensation
+U HINC_UC = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income                     
+     Worker's Compensation                
+*********************************************
+
+D HINC_WC     1    122  (0:2)
+     Recode - Worker's compensation
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HWCVAL      7    123  (0000000:3899961)
+     Recode - HHLD income - Worker's
+     compensation
+U HINC_WC = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Social Security     
+*********************************************
+
+D HSS_YN      1    130  (0:2)
+     Recode - Social Security payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HSSVAL      7    131  (0000000:1169961)
+     Recode - HHLD income - Social Security
+U HSS_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income                     
+     Supplemental Security                
+*********************************************
+
+D HSSI_YN     1    138  (0:2)
+     Recode - Supplemental Security benefits
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HSSIVAL     6    139  (000000:389961)
+     Recode - HHLD income - Supplemental
+     Security income
+U HSSI_YN = 1
+V     000000 .None
+V            .Dollar amount
+
+*********************************************
+     Source of Income                        
+     Public Assistance  or Welfare      
+*********************************************
+
+D HPAW_YN     1    145  (0:2)
+     Recode - Public Assistance
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HPAWVAL     6    146  (000000:779961)
+     Recode - HHLD income - Public
+     Assistance income
+U HPAW_YN = 1
+V     000000 .None
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Veterans' Benefits  
+*********************************************
+
+D HVET_YN     1    152  (0:2)
+     Recode - Veterans' Payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HVETVAL     7    153  (0000000:1169961)
+     Recode - HHLD income - Veteran Payments
+U HVET_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Survivor's Income   
+*********************************************
+D HSUR_YN     1    160  (0:2)
+     Recode - Survivor Benefits
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HSURVAL     7    161  (0000000:3899961)
+     Recode - HHLD income - survivor income
+U HSUR_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Disability           
+*********************************************
+
+D HDIS_YN     1    168  (0:2)
+     Recode - Disability benefits
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HDISVAL     7    169  (0000000:3899961)
+     Recode - HHLD income - Disability income
+U HDIS_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Retirement Income   
+*********************************************
+
+D HRET_YN     1    176  (0:2)
+U H_HHTYPE = 1
+     Recode - Retirement payments
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+D HRETVAL     7    177  (0000000:3899961)
+     Recode - HHLD income - Retirement 
+     income
+U HRET_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Interest           
+*********************************************
+
+D HINT_YN     1    184  (0:2)
+      Recode -interest payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HINTVAL     7    185  (0000000:3899961)
+     Recode - HHLD income - Interest income
+U HINT_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Dividends          
+*********************************************
+
+D HDIV_YN     1    192  (0:2)
+      Recode - Dividend payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HDIVVAL     7    193  (0000000:3899961)
+     Recode - HHLD income - dividend income
+U HDIV_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Rents              
+*********************************************
+
+D HRNT_YN     1    200  (0:2)
+     Recode - Rental payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HRNTVAL     7    201  (-389961:3899961)
+     Recode - HHLD income - Rent income
+U HRNT_YN = 1
+V    0000000 .None or not in universe
+V   Negative .Dollar amount
+V   Positive .Dollar amount
+
+*********************************************
+     Source of Income
+     Education          
+*********************************************
+
+D HED_YN      1    208  (0:2)
+      Recode - Educational assistance
+      benefits
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+D HEDVAL      7    209  (0000000:3899961)
+     Recode - HHLD income - Education income
+U HED_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Child Support      
+*********************************************
+
+D HCSP_YN     1    216  (0:2)
+      Recode - Child support payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HCSPVAL     7    217  (0000000:3899961)
+     Recode - HHLD income - child support
+U HCSP_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+D FILLER      8    224
+     Filler
+
+*********************************************
+     Source of Income                       
+     Financial Assistance                   
+*********************************************
+
+D HFIN_YN     1    232  (0:2)
+      Recode - Financial assistance payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HFINVAL     7    233  (0000000:3899961)
+     Recode - HHLD income - Financial
+     assistance income
+U HFIN_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Source of Income
+     Other Income       
+*********************************************
+
+D HOI_YN      1    240  (0:2)
+     Other income payments
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HOIVAL      7    241  (0000000:3899961)
+     Recode - HHLD income - Other income
+U HOI_YN = 1
+V    0000000 .None or not in universe
+V            .Dollar amount
+
+*********************************************
+     Summary Household Income Recodes        
+*********************************************
+
+D HTOTVAL     8    248  (-389961:23399766)
+     Recode - Total household income
+U H_HHTYPE = 1
+V   00000000 .None or not in universe
+V    Neg Amt .Income (loss)
+V    Pos Amt .Income
+
+D HEARNVAL    8    256  (-389961:11699883)
+     Recode - Total household earnings
+U HINC_WS,HINC_SE or HINC_FR = 1
+V   00000000 .None or not in universe
+V    Neg Amt .Income (loss)
+V    Pos Amt .Income
+
+D HOTHVAL     8    264  (-389961:11699883)
+     All other types of income except 
+     HEARNVAL
+     Recode - Total other household income
+V   00000000 .None or not in universe
+V    Neg Amt .Income (loss)
+V    Pos Amt .Income
+
+D HHINC       2    272  (00:41)     
+U H_HHTYPE = 1
+      Recode -total household income
+V         00 .Not in universe
+V         01 .Under $2,500
+V         02 .$2,500 to $4,999
+V         03 .$5,000 to $7,499
+V         04 .$7,500 to $9,999
+V         05 .$10,000 to $12,499
+V         06 .$12,500 to $14,999
+V         07 .$15,000 to $17,499
+V         08 .$17,500 to $19,999
+V         09 .$20,000 to $22,499
+V         10 .$22,500 to $24,999
+V         11 .$25,000 to $27,499
+V         12 .$27,500 to $29,999
+V         13 .$30,000 to $32,499
+V         14 .$32,500 to $34,999
+V         15 .$35,000 to $37,499
+V         16 .$37,500 to $39,999
+V         17 .$40,000 to $42,499
+V         18 .$42,500 to $44,999
+V         19 .$45,000 to $47,499
+V         20 .$47,500 to $49,999
+V         21 .$50,000 to $52,499
+V         22 .$52,500 to $54,999
+V         23 .$55,000 to $57,499
+V         24 .$57,500 to $59,999
+V         25 .$60,000 to $62,499
+V         26 .$62,500 to $64,999
+V         27 .$65,000 to $67,499
+V         28 .$67,500 to $69,999
+V         29 .$70,000 to $72,499
+V         30 .$72,500 to $74,999
+V         31 .$75,000 to $77,499
+V         32 .$77,500 to $79,999
+V         33 .$80,000 to $82,499
+V         34 .$82,500 to $84,999
+V         35 .$85,000 to $87,499
+V         36 .$87,500 to $89,999
+V         37 .$90,000 to $92,499
+V         38 .$92,500 to $94,999
+V         39 .$95,000 to $97,499
+V         40 .$97,500 to $99,999
+V         41 .$100,000 and over
+
+*********************************************
+     Edited Health Insurance               
+*********************************************
+
+D HMCARE      1    274  (0:2)
+     Anyone in HHLD covered by Medicare
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HMCAID      1    275  (0:2)
+     Anyone in HHLD covered by Medicaid
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HCHAMP      1    276  (0:2)
+     CHAMPUS, VA, or military health care
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+D HHI_YN      1    277  (0:2)
+     Anyone in HHLD have health insurance
+U H_HHTYPE = 1
+V          0 .Not in universe
+V          1 .Yes
+V          2 .No
+
+*********************************************
+     Household Recodes
+*********************************************
+
+D HHSTATUS    1    278  (0:3)
+     Recode - Household status
+U H_TYPE = 1:8
+V          0 .Not in universe (group
+V            .quarters)
+V          1 .Primary family
+V          2 .Nonfamily householder living
+V            .alone
+V          3 .Nonfamily householder living
+V            .with nonrelatives
+
+D HUNDER18    2    279  (00:39)
+     Recode - Number of persons in HHLD
+     under age 18
+U H_HHTYPE = 1
+V         00 .None
+V      01-39 .Number persons under 18
+
+D HTOP5PCT    1    281  (0:2)
+     Recode - Household income percentiles
+U H_HHTYPE = 1
+V          0 .Not in universe (group 
+V            .quarters)
+V          1 .In top 5 percent
+V          2 .Not in top 5 percent
+
+D HPCTCUT     2    282  (00:20)
+     Recode - HHLD income percentiles -
+     National rank
+U H_HHTYPE = 1
+V         00 .Not in universe (group 
+V            .quarters)
+V         01 .Lowest 5 percent
+V         02 .Second 5 percent
+V            ...
+V         20 .Top 5 percent
+
+D FILLER      3    284
+     Filler
+
+*********************************************
+     March Supplement Household Weight    
+*********************************************
+
+D HSUP_WGT    8    287  (00000000:99999999)
+     Final weight (2 implied decimal places)
+U H_HHTYPE = 1
+
+*********************************************
+     Allocation flags for basic CPS        
+*********************************************
+
+D H1TENURE    1    295  (0:4)
+V          0 .No change
+V          1 .Value to blank
+V          4 .Allocated
+
+D FILLER      1    296
+     Filler
+
+D H1LIVQRT    1    297  (0:7)
+V          0 .No change
+V          4 .Allocated
+V          7 .Blank to NA - no error
+
+D FILLER      1    298
+     Filler
+
+D H1TELHHD    1    299  (0:4)
+V          0 .No change
+V          1 .Value to blank
+V          4 .Allocated
+
+D H1TELAVL    1    300  (0:4)
+V          0 .No change
+V          1 .Value to blank
+V          4 .Allocated
+
+D H1TELINT    1    301  (0:4)
+V          0 .No change
+V          1 .Value to blank
+V          4 .Allocated
+
+*********************************************
+     Allocation flags for supplement         
+     household items                         
+*********************************************
+
+D FILLER      6    302  (0:1)
+     Filler
+
+D I_HHOTLU    1    308  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HHOTNO    1    309  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFLUNC    1    310  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFLUNN    1    311  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HPUBLI    1    312  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HLOREN    1    313  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFOODS    1    314  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFDVAL    1    315  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFOODN    1    316  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HFOODM    1    317  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HENGAS    1    318  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D I_HENGVA    1    319  (0:1)
+V          0 .No change
+V          1 .Allocated
+
+D H_IDNUM2    5    320
+     Second part of household id number.
+     Same as characters 16-20 of PERIDNUM
+     Must be used with H_IDNUM1 to uniquely
+     id households.
+U ALL
+
+D FILLER      7    325
+     Filler
+
+*********************************************
+     New fields in 1992 from after-tax       
+     processing                              
+*********************************************
+
+D PROP_TAX    5    332  (00000:99997)
+     Annual property taxes
+V      00000 .None
+V    00001-  .Dollar amount
+V      99997 .
+
+D HOUSRET     5    337  (-9999:25000)
+     Return to home equity
+V      00000 .None
+V    -9999 - .Dollar amount
+V      25000 .
+
+*********************************************
+     New uncollapsed H_TYPE from new CPS     
+     questionnaire                           
+*********************************************
+
+D HRHTYPE     2    342  (00:10)
+     Household type
+U H_HHTYPE = 1
+V         00 .Non-interview household
+V         01 .Husband/wife primary family
+V            .(neither husband or wife in
+V            .Armed Forces)
+V         02 .Husband/wife primary family
+V            .(husband and/or
+V            .wife in Armed Forces)
+V         03 .Unmarried civilian male 
+V            .primary family householder
+V         04 .Unmarried civilian female
+V            .primary family householder
+V         05 .Primary family household -
+V            .reference person in
+V            .Armed Forces and unmarried
+V         06 .Civilian male nonfamily
+V            .householder
+V         07 .Civilian female nonfamily
+V            .householder
+V         08 .Nonfamily householder
+V            .household - reference
+V            .person in Armed Forces
+V         09 .Group quarters with actual
+V            .families  (This is new in 1994)
+V         10 .Group quarters with secondary
+V            .individuals only
+
+D H_IDNUM1    15    344
+     First part of household id number.  
+     Same as characters 1-15 of PERIDNUM.
+     Must be used with H_IDNUM2 to uniquely
+     id households.
+U ALL
+
+D I_HUNITS    1    359  (0:1)
+     Allocation flag for HUNITS
+V          0 .No change
+V          1 .Allocated
+
+D FILLER      1    360
+     Filler
+
+*********************************************
+     NEW HOUSEHOLD WELFARE REFORM ITEMS   
+*********************************************
+
+D FILLER      1    361  (0:2)
+     Filler
+
+D FILLER      2    362  (0:16)
+     Filler
+
+D FILLER      1    364  (0:2)
+     Filler
+
+D FILLER      2    365  (0:16)
+     Filler
+
+D HRPAIDCC    1    367  (0:2)
+     DID (YOU/ANYONE IN THIS HOUSEHOLD) PAY
+     FOR THE CARE OF (YOUR/THEIR) (CHILD/
+     CHILDREN) WHILE THEY WORKED LAST YEAR?
+     (INCLUDE PRESCHOOL AND NURSERY SCHOOL;
+     EXCLUDE KINDERGARTEN OR GRADE/
+     ELEMENTARY SCHOOL)?
+V          0 .NIU
+V          1 .YES
+V          2 .NO
+
+********************************************
+     EDITED HOUSEHOLD VARIABLES FOR NEW    
+     SUPPLEMENT EDITS                      
+********************************************
+
+D HPROP_VAL   8    368  (0:99999999)
+     ESTIMATE OF CURRENT PROPERTY VALUE
+U H_TENURE = 1
+V   00000000 .Not in universe
+V  00000001- .Dollar value
+V  99999999  .
+
+D THPROP_VAL  1    376  (0:1)
+     Topcode flag for HPROP_VAL
+U H_HHTYPE = 1
+V          0 .Not swapped
+V          1 .Topcoded
+
+D I_PROPVAL  1    377  (0:1)
+     Allocation flag for HPROP_VAL
+U H_HHTYPE = 1
+V          0 .No allocation
+V          1 .Allocated
+
+D FILLER      5    378 
+     Filler
+
+D HRNUMWIC    2    383  (0:16)
+     NUMBER OF PEOPLE IN THE HOUSEHOLD
+    RECEIVING WIC (1-16).
+
+D FILLER      1    385  (0:2)
+     Filler
+
+D HRWICYN     1    386  (0:2)
+     AT ANY TIME LAST YEAR, (WERE YOU/WAS
+     ANYONE IN THIS HOUSEHOLD) ON WIC, THE
+     WOMEN, INFANTS, AND CHILDREN NUTRITION
+     PROGRAM?
+V          0 .NIU
+V          1 .YES
+V          2 .NO
+
+D HFDVAL      5    387  (00000:24999)
+     Item 93 - What was the value of all
+     food stamps received during 20..?
+U HFOODSP = 1
+V       0000 .Not in universe
+V  0001-9999 .Food stamps value
+
+D TCARE_VAL   1    392  (0:1)
+      Topcode flag for CARE_VAL
+V          0 .No change
+V          1 .Topcoded
+
+D CARE_VAL    6    393  (-1:999999)
+Annual amount paid for child 
+care by household members
+U�	HRPAIDCC=1
+V       -1,0 .Not in universe
+V   1-999999 .Amount in dollars
+
+D I_CAREVAL   1    399  (0:1)
+      Allocation flag for CARE_VAL
+V          0 .No change
+V          1 .Allocated
+
+D HPRES_MORT  1    400  (0:2)
+Presence of home mortgage (respondent
+answers yes to hmort_yn or hsmort_yn)
+V          0. Not in universe
+V          1. Yes
+V          2. No
+
+D FILLER    692    401
